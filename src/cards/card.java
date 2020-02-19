@@ -16,11 +16,11 @@ public class card {
         return col;
     }
 
-    public static card[] cardarray(){
-        card[] cardarray=new card[52];
-        for (byte i = 0;i<=3;i++){
-            for(int j=1;j<=13;j++){
-                cardarray[i*13+j-1]=new card(j,i);
+    public static card[] cardarray(int numcols,int numvals){
+        card[] cardarray=new card[numvals*numcols];
+        for (byte i = 0;i<=numcols-1;i++){
+            for(int j=1;j<=numvals;j++){
+                cardarray[i*numvals+j-1]=new card(j,i);
             }
         }
         return cardarray;
@@ -28,8 +28,12 @@ public class card {
 
     public static card[] randcard(card[]cardlist,int number){
         card[] randcards=new card[number];
-        for(int i=1;i<=number;i++){
-
+        for(int i=0;i<number;i++){
+            int rand=(int)(Math.random()*(cardlist.length-1-i));
+            randcards[i]=cardlist[rand];
+            card temp=cardlist[rand];
+            cardlist[rand]=cardlist[cardlist.length-1-i];
+            cardlist[cardlist.length-1-i]=temp;
         }
         return randcards;
     }
