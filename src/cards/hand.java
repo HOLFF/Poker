@@ -77,28 +77,28 @@ public class hand {
     public boolean fh() {           //searching for a full house
         boolean tok=false;
         boolean pair=false;
-        for (int i = 0; i < val.length - 2; i++) {
-            for (int j = i; j < val.length - 2; j++) {
-                if (val[j] == val[j + 2]) {
-                    tok = true;
-                    i+=2;
-                    j += 1;
-                }
-                else if (val[j] == val[j + 1]) {
-                    i+=1;
-                    j += 1;
-                    pair = true;
-                }
+        int[] sec= val;
 
+        for (int i = 0; i <sec.length-2;i++){
+            if (sec[i]==sec[i+2]){
+                sec[i]=-97;
+                sec[i+1]=-98;
+                sec[i+2]=-99;
+                tok = true;
             }
         }
-        if(tok&&pair) return true;
+        for (int i = 0; i <sec.length-1;i++){
+            if (sec[i]==sec[i+1]){
+                pair = true;
+            }
+        }
+        if(pair&&tok) return true;
         else return false;
-
     }
 
 
     public boolean straight(){          //searching for a straight in hand
+        if (val[0]==1&&val[0]+1==val[1]&&val[0]+2==val[2]&&val[0]+3==val[3]&&val[4]==13) return true;
         for(int i = 0;i<val.length-1;i++){
             if(val[i]+1!=val[i+1]) return false;
         }

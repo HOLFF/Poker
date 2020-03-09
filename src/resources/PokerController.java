@@ -1,13 +1,11 @@
-package main;
+package resources;
 
 import cards.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import java.util.Arrays;
 
-
-public class FXMLController {
+public class PokerController {
     public Button go;
     public TextField amcol;
     public TextField amval;

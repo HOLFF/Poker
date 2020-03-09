@@ -1,9 +1,8 @@
-package main;
+package resources;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -22,7 +21,6 @@ public class Loader_main extends Application {
         final Scene scene = new Scene(root, 700, 450);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Poker");
-        //primaryStage.getIcons().add(new Image("Senfter/Coder/icon.jpg"));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
