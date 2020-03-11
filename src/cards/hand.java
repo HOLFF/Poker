@@ -109,6 +109,10 @@ public class hand {
         return val[val.length-1];
     }
 
+    public int excheck(){             //checking if the special case for straight is occuring
+        return val[0];
+    }
+
     public boolean flush(){             //searching for flush in hand
         for(int i =0;i<col.length-4;i++){
             for(int j =i;j<col.length-4;j++){
@@ -127,7 +131,7 @@ public class hand {
     public static int getcomb(hand h){      //getting combination in hand
         if(h.straight()){
             if(h.flush()){
-                if(h.getmaxval()==13){
+                if(h.getmaxval()==13 && h.excheck()!=1){
                     return 9;
                 }
                 else{
